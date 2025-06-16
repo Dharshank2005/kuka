@@ -1,7 +1,8 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
-import { Cpu, Lightbulb, Trophy, Zap, Users } from 'lucide-react';
+import { Cpu, Lightbulb, Trophy, Users } from 'lucide-react';
+import kukaImage from '../assets/robo.JPG'; // Replace with your actual image path
 
 const About = () => {
   const [ref, inView] = useInView({
@@ -66,20 +67,34 @@ const About = () => {
           <p>Join us for an exciting challenge to revolutionize the future of industrial automation and robotics</p>
         </motion.div>
 
+        {/* Updated Section with Text on Left and Image on Right */}
         <motion.div 
-          className="max-w-3xl mx-auto mb-16 text-center"
+          className="flex flex-col-reverse md:flex-row items-center justify-between gap-8 mb-16"
           initial={{ opacity: 0, y: 20 }}
           animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
           transition={{ duration: 0.5, delay: 0.2 }}
         >
-          <p className="text-lg text-gray-700 mb-6">
-            The KUKA Hackathon Challenge brings together brilliant minds to solve real-world problems in industrial automation and robotics. Participants will work on innovative solutions for the manufacturing industry, leveraging KUKA's advanced robotics technologies.
-          </p>
-          <p className="text-lg text-gray-700">
-            Whether you're a student, professional, or robotics enthusiast, this hackathon offers a platform to showcase your skills, learn from industry experts, and potentially revolutionize the future of automation.
-          </p>
+          {/* Text content */}
+          <div className="md:w-1/2 text-center md:text-left">
+            <p className="text-lg text-gray-700 mb-6">
+              The KUKA Hackathon Challenge brings together brilliant minds to solve real-world problems in industrial automation and robotics. Participants will work on innovative solutions for the manufacturing industry, leveraging KUKA's advanced robotics technologies.
+            </p>
+            <p className="text-lg text-gray-700">
+              Whether you're a student, professional, or robotics enthusiast, this hackathon offers a platform to showcase your skills, learn from industry experts, and potentially revolutionize the future of automation.
+            </p>
+          </div>
+
+          {/* Image content */}
+          <div className="md:w-1/2 flex justify-center">
+            <img 
+              src={kukaImage}
+              alt="KUKA Robotics"
+              className="rounded-lg shadow-lg w-full max-w-md object-cover"
+            />
+          </div>
         </motion.div>
 
+        {/* Features Grid */}
         <motion.div 
           className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8"
           variants={containerVariants}
@@ -101,6 +116,7 @@ const About = () => {
           ))}
         </motion.div>
 
+        {/* CTA Section */}
         <motion.div 
           className="bg-gradient-to-r from-primary-800 to-secondary-800 text-white rounded-xl p-8 mt-16 relative overflow-hidden"
           initial={{ opacity: 0, scale: 0.95 }}
@@ -109,7 +125,7 @@ const About = () => {
         >
           <div className="absolute top-0 right-0 -mt-10 -mr-10 w-40 h-40 bg-primary-500/20 rounded-full blur-xl"></div>
           <div className="absolute bottom-0 left-0 -mb-10 -ml-10 w-40 h-40 bg-secondary-500/20 rounded-full blur-xl"></div>
-          
+
           <div className="relative z-10 flex flex-col md:flex-row items-center justify-between">
             <div className="md:w-2/3 mb-6 md:mb-0">
               <h3 className="text-2xl font-bold mb-2">Ready to take on the challenge?</h3>

@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
-import { ArrowRight, Bot, Cog, Factory, BrainCircuit, Wifi } from 'lucide-react';
+import { ArrowRight, Bot, Factory, BrainCircuit, Wifi, X, Check } from 'lucide-react';
+import workImage from '../assets/work.JPG'; // ✅ Make sure this path is correct
 
 const challenges = [
   {
@@ -60,29 +61,11 @@ const challenges = [
     ],
     color: "from-orange-500 to-orange-700"
   },
-  // {
-  //   id: 5,
-  //   title: "Smart Manufacturing Technologies",
-  //   icon: <Cog size={40} />,
-  //   description: "Develop technologies that advance the concept of smart manufacturing. Create solutions that utilize data analytics, digital twins, and other cutting-edge technologies to transform traditional manufacturing processes.",
-  //   details: [
-  //     "Create digital twin implementations for manufacturing processes",
-  //     "Develop real-time analytics dashboards for production metrics",
-  //     "Implement adaptive manufacturing systems based on demand patterns",
-  //     "Design solutions for resource optimization and waste reduction",
-  //     "Focus on interoperability with various manufacturing systems"
-  //   ],
-  //   color: "from-green-500 to-green-700"
-  // }
 ];
 
 const Challenges = () => {
   const [activeChallenge, setActiveChallenge] = useState(null);
-  
-  const [ref, inView] = useInView({
-    triggerOnce: true,
-    threshold: 0.1,
-  });
+  const [ref, inView] = useInView({ triggerOnce: true, threshold: 0.1 });
 
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -99,52 +82,65 @@ const Challenges = () => {
     visible: {
       opacity: 1,
       y: 0,
-      transition: {
-        duration: 0.5,
-      },
+      transition: { duration: 0.5 },
     },
   };
 
   return (
     <section id="challenges" className="section-padding bg-gray-50">
       <div className="container mx-auto container-padding" ref={ref}>
-        <motion.div 
-          className="section-title"
-          initial={{ opacity: 0, y: 20 }}
-          animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
-          transition={{ duration: 0.5 }}
-        >
-          <h2>Hackathon Challenges</h2>
-          <p>Choose from these exciting challenge tracks and push the boundaries of what's possible</p>
-        </motion.div>
+        <div className="flex flex-col md:flex-row items-start gap-10">
+          
+          {/* Left Image Side */}
+          <div className="w-full md:w-1/2">
+            <img 
+              src={workImage} 
+              alt="Workstation" 
+              className="rounded-lg shadow-lg w-full h-[600px] object-cover"
+            />
+          </div>
 
-        <motion.div 
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-8 max-w-4xl mx-auto"
-          variants={containerVariants}
-          initial="hidden"
-          animate={inView ? "visible" : "hidden"}
-        >
-          {challenges.map((challenge) => (
+          {/* Right Content Side */}
+          <div className="w-full md:w-1/2">
             <motion.div 
-              key={challenge.id}
-              className="card overflow-hidden group cursor-pointer"
-              variants={cardVariants}
-              onClick={() => setActiveChallenge(challenge)}
-              whileHover={{ y: -5 }}
+              className="section-title mb-4"
+              initial={{ opacity: 0, y: 20 }}
+              animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
+              transition={{ duration: 0.5 }}
             >
-              <div className={`h-2 w-full bg-gradient-to-r ${challenge.color}`}></div>
-              <div className="p-6 flex flex-col h-full">
-                <div className="text-primary-600 mb-4">{challenge.icon}</div>
-                <h3 className="text-xl font-semibold mb-3">{challenge.title}</h3>
-                <p className="text-gray-600 flex-grow mb-4">{challenge.description}</p>
-                <div className="flex items-center text-primary-600 font-medium group-hover:text-primary-700">
-                  <span>Learn More</span>
-                  <ArrowRight size={16} className="ml-1 group-hover:translate-x-1 transition-transform" />
-                </div>
-              </div>
+              <h2 className="text-3xl font-bold">Hackathon Challenges</h2>
+              <p className="text-gray-600 mt-2">Choose from these exciting challenge tracks and push the boundaries of what's possible</p>
             </motion.div>
-          ))}
-        </motion.div>
+
+            <motion.div 
+              className="grid grid-cols-1 gap-4 overflow-y-auto max-h-[600px] pr-2"
+              variants={containerVariants}
+              initial="hidden"
+              animate={inView ? "visible" : "hidden"}
+            >
+              {challenges.map((challenge) => (
+                <motion.div 
+                  key={challenge.id}
+                  className="card overflow-hidden group cursor-pointer border border-gray-200 rounded-lg bg-white shadow-sm"
+                  variants={cardVariants}
+                  onClick={() => setActiveChallenge(challenge)}
+                  whileHover={{ y: -5 }}
+                >
+                  <div className={`h-2 w-full bg-gradient-to-r ${challenge.color}`}></div>
+                  <div className="p-4 flex flex-col h-full">
+                    <div className="text-primary-600 mb-2">{challenge.icon}</div>
+                    <h3 className="text-lg font-semibold mb-2">{challenge.title}</h3>
+                    <p className="text-gray-600 text-sm mb-3 line-clamp-3">{challenge.description}</p>
+                    <div className="flex items-center text-primary-600 font-medium group-hover:text-primary-700 text-sm">
+                      <span>Learn More</span>
+                      <ArrowRight size={16} className="ml-1 group-hover:translate-x-1 transition-transform" />
+                    </div>
+                  </div>
+                </motion.div>
+              ))}
+            </motion.div>
+          </div>
+        </div>
 
         {/* Challenge Detail Modal */}
         {activeChallenge && (
@@ -209,8 +205,5 @@ const Challenges = () => {
     </section>
   );
 };
-
-// Import X and Check for the modal
-import { X, Check } from 'lucide-react';
 
 export default Challenges;
