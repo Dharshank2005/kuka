@@ -60,20 +60,20 @@ const challenges = [
     ],
     color: "from-orange-500 to-orange-700"
   },
-  {
-    id: 5,
-    title: "Smart Manufacturing Technologies",
-    icon: <Cog size={40} />,
-    description: "Develop technologies that advance the concept of smart manufacturing. Create solutions that utilize data analytics, digital twins, and other cutting-edge technologies to transform traditional manufacturing processes.",
-    details: [
-      "Create digital twin implementations for manufacturing processes",
-      "Develop real-time analytics dashboards for production metrics",
-      "Implement adaptive manufacturing systems based on demand patterns",
-      "Design solutions for resource optimization and waste reduction",
-      "Focus on interoperability with various manufacturing systems"
-    ],
-    color: "from-green-500 to-green-700"
-  }
+  // {
+  //   id: 5,
+  //   title: "Smart Manufacturing Technologies",
+  //   icon: <Cog size={40} />,
+  //   description: "Develop technologies that advance the concept of smart manufacturing. Create solutions that utilize data analytics, digital twins, and other cutting-edge technologies to transform traditional manufacturing processes.",
+  //   details: [
+  //     "Create digital twin implementations for manufacturing processes",
+  //     "Develop real-time analytics dashboards for production metrics",
+  //     "Implement adaptive manufacturing systems based on demand patterns",
+  //     "Design solutions for resource optimization and waste reduction",
+  //     "Focus on interoperability with various manufacturing systems"
+  //   ],
+  //   color: "from-green-500 to-green-700"
+  // }
 ];
 
 const Challenges = () => {
@@ -119,7 +119,7 @@ const Challenges = () => {
         </motion.div>
 
         <motion.div 
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-8 max-w-4xl mx-auto"
           variants={containerVariants}
           initial="hidden"
           animate={inView ? "visible" : "hidden"}

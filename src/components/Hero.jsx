@@ -1,6 +1,10 @@
 "use client"
 import { motion } from "framer-motion"
 import { ChevronDown, Bot, LightbulbIcon, Code, Users, Cpu, Zap, BrainCircuit } from "lucide-react"
+import logoYellow from "../assets/CIT Logo Yellow-Autonomous(1).png"
+import logoCITBIF from "../assets/CITBIF final logo.png"
+import logoInnovest from "../assets/innovest final image.png"
+import logoKUKA from "../assets/KUKA-Logo.wine.png"
 
 const Hero = () => {
   // Animation variants
@@ -69,6 +73,97 @@ const Hero = () => {
             ease: "easeInOut",
           }}
         />
+        
+        {/* Background logos - puzzle pattern */}
+        <div className="absolute inset-0 grid grid-cols-4 grid-rows-4 opacity-[0.08]">
+          {/* Row 1 */}
+          <motion.div className="flex items-center justify-center"
+            animate={{ rotate: [0, 3, 0] }}
+            transition={{ duration: 12, repeat: Number.POSITIVE_INFINITY, ease: "easeInOut" }}>
+            <img src={logoYellow} alt="" className="w-20 md:w-28" />
+          </motion.div>
+          <motion.div className="flex items-center justify-center"
+            animate={{ rotate: [0, -2, 0] }}
+            transition={{ duration: 10, repeat: Number.POSITIVE_INFINITY, ease: "easeInOut" }}>
+            <img src={logoCITBIF} alt="" className="w-20 md:w-28" />
+          </motion.div>
+          <motion.div className="flex items-center justify-center"
+            animate={{ rotate: [0, 4, 0] }}
+            transition={{ duration: 11, repeat: Number.POSITIVE_INFINITY, ease: "easeInOut" }}>
+            <img src={logoInnovest} alt="" className="w-20 md:w-28" />
+          </motion.div>
+          <motion.div className="flex items-center justify-center"
+            animate={{ rotate: [0, -3, 0] }}
+            transition={{ duration: 9, repeat: Number.POSITIVE_INFINITY, ease: "easeInOut" }}>
+            <img src={logoKUKA} alt="" className="w-20 md:w-28" />
+          </motion.div>
+          
+          {/* Row 2 */}
+          <motion.div className="flex items-center justify-center"
+            animate={{ rotate: [0, -4, 0] }}
+            transition={{ duration: 13, repeat: Number.POSITIVE_INFINITY, ease: "easeInOut" }}>
+            <img src={logoKUKA} alt="" className="w-20 md:w-28" />
+          </motion.div>
+          <motion.div className="flex items-center justify-center"
+            animate={{ rotate: [0, 3, 0] }}
+            transition={{ duration: 11.5, repeat: Number.POSITIVE_INFINITY, ease: "easeInOut" }}>
+            <img src={logoYellow} alt="" className="w-20 md:w-28" />
+          </motion.div>
+          <motion.div className="flex items-center justify-center"
+            animate={{ rotate: [0, -2, 0] }}
+            transition={{ duration: 10.5, repeat: Number.POSITIVE_INFINITY, ease: "easeInOut" }}>
+            <img src={logoCITBIF} alt="" className="w-20 md:w-28" />
+          </motion.div>
+          <motion.div className="flex items-center justify-center"
+            animate={{ rotate: [0, 2, 0] }}
+            transition={{ duration: 12.5, repeat: Number.POSITIVE_INFINITY, ease: "easeInOut" }}>
+            <img src={logoInnovest} alt="" className="w-20 md:w-28" />
+          </motion.div>
+          
+          {/* Row 3 */}
+          <motion.div className="flex items-center justify-center"
+            animate={{ rotate: [0, 2, 0] }}
+            transition={{ duration: 10.2, repeat: Number.POSITIVE_INFINITY, ease: "easeInOut" }}>
+            <img src={logoInnovest} alt="" className="w-20 md:w-28" />
+          </motion.div>
+          <motion.div className="flex items-center justify-center"
+            animate={{ rotate: [0, -3, 0] }}
+            transition={{ duration: 9.8, repeat: Number.POSITIVE_INFINITY, ease: "easeInOut" }}>
+            <img src={logoKUKA} alt="" className="w-20 md:w-28" />
+          </motion.div>
+          <motion.div className="flex items-center justify-center"
+            animate={{ rotate: [0, 3, 0] }}
+            transition={{ duration: 11.2, repeat: Number.POSITIVE_INFINITY, ease: "easeInOut" }}>
+            <img src={logoYellow} alt="" className="w-20 md:w-28" />
+          </motion.div>
+          <motion.div className="flex items-center justify-center"
+            animate={{ rotate: [0, -2, 0] }}
+            transition={{ duration: 12.8, repeat: Number.POSITIVE_INFINITY, ease: "easeInOut" }}>
+            <img src={logoCITBIF} alt="" className="w-20 md:w-28" />
+          </motion.div>
+          
+          {/* Row 4 */}
+          <motion.div className="flex items-center justify-center"
+            animate={{ rotate: [0, -2, 0] }}
+            transition={{ duration: 9.5, repeat: Number.POSITIVE_INFINITY, ease: "easeInOut" }}>
+            <img src={logoCITBIF} alt="" className="w-20 md:w-28" />
+          </motion.div>
+          <motion.div className="flex items-center justify-center"
+            animate={{ rotate: [0, 3, 0] }}
+            transition={{ duration: 10.8, repeat: Number.POSITIVE_INFINITY, ease: "easeInOut" }}>
+            <img src={logoInnovest} alt="" className="w-20 md:w-28" />
+          </motion.div>
+          <motion.div className="flex items-center justify-center"
+            animate={{ rotate: [0, -3, 0] }}
+            transition={{ duration: 11.7, repeat: Number.POSITIVE_INFINITY, ease: "easeInOut" }}>
+            <img src={logoKUKA} alt="" className="w-20 md:w-28" />
+          </motion.div>
+          <motion.div className="flex items-center justify-center"
+            animate={{ rotate: [0, 2, 0] }}
+            transition={{ duration: 12.3, repeat: Number.POSITIVE_INFINITY, ease: "easeInOut" }}>
+            <img src={logoYellow} alt="" className="w-20 md:w-28" />
+          </motion.div>
+        </div>
       </div>
 
       <div className="container mx-auto container-padding z-10">
@@ -92,8 +187,12 @@ const Hero = () => {
               KUKA Hackathon <br />
               <span className="text-accent-400">Challenge 2025</span>
             </motion.h1>
-            <motion.p className="text-xl md:text-2xl mb-8 text-gray-200 max-w-lg" variants={itemVariants}>
-              Innovate and develop cutting-edge solutions for the future of industrial automation and robotics.
+            <motion.p
+              className="text-xl md:text-2xl mb-8 text-gray-200 max-w-lg"
+              variants={itemVariants}
+            >
+              Innovate and develop cutting-edge solutions for the future of
+              industrial automation and robotics.
             </motion.p>
             <motion.div
               className="flex flex-col sm:flex-row gap-4 justify-center md:justify-start"
@@ -118,6 +217,8 @@ const Hero = () => {
             </motion.div>
           </motion.div>
 
+
+
           <motion.div
             className="md:w-1/2 relative flex justify-center md:justify-end md:pr-8"
             initial={{ opacity: 0 }}
@@ -130,8 +231,18 @@ const Hero = () => {
                 {/* Circuit-like grid pattern */}
                 <svg className="w-full h-full opacity-20" viewBox="0 0 400 400">
                   <defs>
-                    <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
-                      <path d="M 40 0 L 0 0 0 40" fill="none" stroke="currentColor" strokeWidth="1" />
+                    <pattern
+                      id="grid"
+                      width="40"
+                      height="40"
+                      patternUnits="userSpaceOnUse"
+                    >
+                      <path
+                        d="M 40 0 L 0 0 0 40"
+                        fill="none"
+                        stroke="currentColor"
+                        strokeWidth="1"
+                      />
                     </pattern>
                   </defs>
                   <rect width="100%" height="100%" fill="url(#grid)" />
@@ -188,7 +299,9 @@ const Hero = () => {
               {/* Top */}
               <motion.div
                 className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"
-                style={{ transform: "translate(-50%, -50%) translateY(-100px)" }}
+                style={{
+                  transform: "translate(-50%, -50%) translateY(-100px)",
+                }}
                 initial={{ opacity: 0, y: 10 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 1, duration: 0.6 }}
@@ -196,7 +309,11 @@ const Hero = () => {
                 <motion.div
                   className="bg-gradient-to-br from-yellow-400 to-yellow-500 text-white p-3 rounded-xl shadow-lg"
                   animate={{ y: [0, -3, 0] }}
-                  transition={{ duration: 6, repeat: Number.POSITIVE_INFINITY, ease: "easeInOut" }}
+                  transition={{
+                    duration: 6,
+                    repeat: Number.POSITIVE_INFINITY,
+                    ease: "easeInOut",
+                  }}
                 >
                   <LightbulbIcon size={20} />
                 </motion.div>
@@ -205,7 +322,9 @@ const Hero = () => {
               {/* Top Right */}
               <motion.div
                 className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"
-                style={{ transform: "translate(-50%, -50%) translate(70px, -70px)" }}
+                style={{
+                  transform: "translate(-50%, -50%) translate(70px, -70px)",
+                }}
                 initial={{ opacity: 0, y: 10 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 1.2, duration: 0.6 }}
@@ -213,7 +332,11 @@ const Hero = () => {
                 <motion.div
                   className="bg-gradient-to-br from-pink-400 to-pink-500 text-white p-2.5 rounded-lg shadow-lg"
                   animate={{ y: [0, -2, 0] }}
-                  transition={{ duration: 8, repeat: Number.POSITIVE_INFINITY, ease: "easeInOut" }}
+                  transition={{
+                    duration: 8,
+                    repeat: Number.POSITIVE_INFINITY,
+                    ease: "easeInOut",
+                  }}
                 >
                   <BrainCircuit size={18} />
                 </motion.div>
@@ -230,7 +353,11 @@ const Hero = () => {
                 <motion.div
                   className="bg-gradient-to-br from-blue-400 to-blue-500 text-white p-3 rounded-xl shadow-lg"
                   animate={{ y: [0, -2.5, 0] }}
-                  transition={{ duration: 7, repeat: Number.POSITIVE_INFINITY, ease: "easeInOut" }}
+                  transition={{
+                    duration: 7,
+                    repeat: Number.POSITIVE_INFINITY,
+                    ease: "easeInOut",
+                  }}
                 >
                   <Cpu size={20} />
                 </motion.div>
@@ -239,7 +366,9 @@ const Hero = () => {
               {/* Bottom Right */}
               <motion.div
                 className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"
-                style={{ transform: "translate(-50%, -50%) translate(70px, 70px)" }}
+                style={{
+                  transform: "translate(-50%, -50%) translate(70px, 70px)",
+                }}
                 initial={{ opacity: 0, y: 10 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 1.6, duration: 0.6 }}
@@ -247,7 +376,11 @@ const Hero = () => {
                 <motion.div
                   className="bg-gradient-to-br from-orange-400 to-orange-500 text-white p-2.5 rounded-lg shadow-lg"
                   animate={{ y: [0, -1.5, 0] }}
-                  transition={{ duration: 5.8, repeat: Number.POSITIVE_INFINITY, ease: "easeInOut" }}
+                  transition={{
+                    duration: 5.8,
+                    repeat: Number.POSITIVE_INFINITY,
+                    ease: "easeInOut",
+                  }}
                 >
                   <Zap size={18} />
                 </motion.div>
@@ -264,7 +397,11 @@ const Hero = () => {
                 <motion.div
                   className="bg-gradient-to-br from-green-400 to-green-500 text-white p-3 rounded-xl shadow-lg"
                   animate={{ y: [0, -2.8, 0] }}
-                  transition={{ duration: 5.5, repeat: Number.POSITIVE_INFINITY, ease: "easeInOut" }}
+                  transition={{
+                    duration: 5.5,
+                    repeat: Number.POSITIVE_INFINITY,
+                    ease: "easeInOut",
+                  }}
                 >
                   <Code size={20} />
                 </motion.div>
@@ -273,7 +410,9 @@ const Hero = () => {
               {/* Bottom Left */}
               <motion.div
                 className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"
-                style={{ transform: "translate(-50%, -50%) translate(-70px, 70px)" }}
+                style={{
+                  transform: "translate(-50%, -50%) translate(-70px, 70px)",
+                }}
                 initial={{ opacity: 0, y: 10 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 2, duration: 0.6 }}
@@ -281,7 +420,11 @@ const Hero = () => {
                 <motion.div
                   className="bg-gradient-to-br from-red-400 to-red-500 text-white p-2.5 rounded-lg shadow-lg"
                   animate={{ y: [0, -2.2, 0] }}
-                  transition={{ duration: 6.8, repeat: Number.POSITIVE_INFINITY, ease: "easeInOut" }}
+                  transition={{
+                    duration: 6.8,
+                    repeat: Number.POSITIVE_INFINITY,
+                    ease: "easeInOut",
+                  }}
                 >
                   <Zap size={18} />
                 </motion.div>
@@ -290,7 +433,9 @@ const Hero = () => {
               {/* Left */}
               <motion.div
                 className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"
-                style={{ transform: "translate(-50%, -50%) translateX(-100px)" }}
+                style={{
+                  transform: "translate(-50%, -50%) translateX(-100px)",
+                }}
                 initial={{ opacity: 0, y: 10 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 2.2, duration: 0.6 }}
@@ -298,7 +443,11 @@ const Hero = () => {
                 <motion.div
                   className="bg-gradient-to-br from-purple-400 to-purple-500 text-white p-3 rounded-xl shadow-lg"
                   animate={{ y: [0, -1.8, 0] }}
-                  transition={{ duration: 6.5, repeat: Number.POSITIVE_INFINITY, ease: "easeInOut" }}
+                  transition={{
+                    duration: 6.5,
+                    repeat: Number.POSITIVE_INFINITY,
+                    ease: "easeInOut",
+                  }}
                 >
                   <Users size={20} />
                 </motion.div>
@@ -307,7 +456,9 @@ const Hero = () => {
               {/* Top Left */}
               <motion.div
                 className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"
-                style={{ transform: "translate(-50%, -50%) translate(-70px, -70px)" }}
+                style={{
+                  transform: "translate(-50%, -50%) translate(-70px, -70px)",
+                }}
                 initial={{ opacity: 0, y: 10 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 2.4, duration: 0.6 }}
@@ -315,7 +466,11 @@ const Hero = () => {
                 <motion.div
                   className="bg-gradient-to-br from-indigo-400 to-indigo-500 text-white p-2.5 rounded-lg shadow-lg"
                   animate={{ y: [0, -1.2, 0] }}
-                  transition={{ duration: 7.2, repeat: Number.POSITIVE_INFINITY, ease: "easeInOut" }}
+                  transition={{
+                    duration: 7.2,
+                    repeat: Number.POSITIVE_INFINITY,
+                    ease: "easeInOut",
+                  }}
                 >
                   <Code size={18} />
                 </motion.div>
@@ -372,14 +527,17 @@ const Hero = () => {
             className="text-white flex flex-col items-center opacity-70 hover:opacity-100 transition-opacity"
           >
             <span className="mb-2">Scroll Down</span>
-            <motion.div animate={{ y: [0, 5, 0] }} transition={{ duration: 1.5, repeat: Number.POSITIVE_INFINITY }}>
+            <motion.div
+              animate={{ y: [0, 5, 0] }}
+              transition={{ duration: 1.5, repeat: Number.POSITIVE_INFINITY }}
+            >
               <ChevronDown />
             </motion.div>
           </a>
         </motion.div>
       </div>
     </section>
-  )
+  );
 }
 
 export default Hero

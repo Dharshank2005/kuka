@@ -1,7 +1,16 @@
-import React, { useState } from 'react';
-import { motion } from 'framer-motion';
-import { useInView } from 'react-intersection-observer';
-import { CheckCircle, AlertCircle, Users, Mail, User, Building, Phone, FileText } from 'lucide-react';
+import React, { useState } from "react";
+import { motion } from "framer-motion";
+import { useInView } from "react-intersection-observer";
+import {
+  CheckCircle,
+  AlertCircle,
+  Users,
+  Mail,
+  User,
+  Building,
+  Phone,
+  FileText,
+} from "lucide-react";
 
 const Registration = () => {
   const [ref, inView] = useInView({
@@ -10,20 +19,20 @@ const Registration = () => {
   });
 
   const [formData, setFormData] = useState({
-    fullName: '',
-    email: '',
-    phone: '',
-    organization: '',
-    teamName: '',
-    teamSize: '',
-    challengeTrack: '',
-    experience: '',
+    fullName: "",
+    email: "",
+    phone: "",
+    organization: "",
+    teamName: "",
+    teamSize: "",
+    challengeTrack: "",
+    experience: "",
   });
 
   const [formStatus, setFormStatus] = useState({
     submitted: false,
     success: false,
-    message: ''
+    message: "",
   });
 
   const handleInputChange = (e) => {
@@ -33,42 +42,48 @@ const Registration = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    
+
     // Simple validation
-    if (!formData.fullName || !formData.email || !formData.teamName || !formData.challengeTrack) {
+    if (
+      !formData.fullName ||
+      !formData.email ||
+      !formData.teamName ||
+      !formData.challengeTrack
+    ) {
       setFormStatus({
         submitted: true,
         success: false,
-        message: 'Please fill all required fields.'
+        message: "Please fill all required fields.",
       });
       return;
     }
-    
+
     // In a real implementation, you would submit to a backend here
     // For now, just simulate a successful submission
     setFormStatus({
       submitted: true,
       success: true,
-      message: 'Registration successful! You will receive a confirmation email shortly.'
+      message:
+        "Registration successful! You will receive a confirmation email shortly.",
     });
-    
+
     // Reset form after successful submission
     setFormData({
-      fullName: '',
-      email: '',
-      phone: '',
-      organization: '',
-      teamName: '',
-      teamSize: '',
-      challengeTrack: '',
-      experience: '',
+      fullName: "",
+      email: "",
+      phone: "",
+      organization: "",
+      teamName: "",
+      teamSize: "",
+      challengeTrack: "",
+      experience: "",
     });
   };
 
   return (
     <section id="register" className="section-padding bg-gray-50" ref={ref}>
       <div className="container mx-auto container-padding">
-        <motion.div 
+        <motion.div
           className="section-title"
           initial={{ opacity: 0, y: 20 }}
           animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
@@ -81,14 +96,14 @@ const Registration = () => {
         <div className="max-w-5xl mx-auto">
           <div className="bg-white rounded-xl overflow-hidden shadow-xl">
             <div className="grid grid-cols-1 lg:grid-cols-3">
-              <motion.div 
+              <motion.div
                 className="bg-gradient-to-br from-primary-700 to-primary-900 text-white p-8 lg:p-12"
                 initial={{ opacity: 0, x: -20 }}
                 animate={inView ? { opacity: 1, x: 0 } : { opacity: 0, x: -20 }}
                 transition={{ duration: 0.5, delay: 0.2 }}
               >
                 <h3 className="text-2xl font-bold mb-6">Why Participate?</h3>
-                
+
                 <ul className="space-y-6">
                   <li className="flex items-start">
                     <CheckCircle size={20} className="mr-3 mt-1 shrink-0" />
@@ -96,7 +111,10 @@ const Registration = () => {
                   </li>
                   <li className="flex items-start">
                     <CheckCircle size={20} className="mr-3 mt-1 shrink-0" />
-                    <p>Network with industry professionals and like-minded innovators</p>
+                    <p>
+                      Network with industry professionals and like-minded
+                      innovators
+                    </p>
                   </li>
                   <li className="flex items-start">
                     <CheckCircle size={20} className="mr-3 mt-1 shrink-0" />
@@ -104,42 +122,62 @@ const Registration = () => {
                   </li>
                   <li className="flex items-start">
                     <CheckCircle size={20} className="mr-3 mt-1 shrink-0" />
-                    <p>Enhance your portfolio with real-world problem-solving experience</p>
+                    <p>
+                      Enhance your portfolio with real-world problem-solving
+                      experience
+                    </p>
                   </li>
                   <li className="flex items-start">
                     <CheckCircle size={20} className="mr-3 mt-1 shrink-0" />
                     <p>Learn from experienced mentors and industry experts</p>
                   </li>
                 </ul>
-                
+
                 <div className="mt-12">
-                  <h4 className="text-xl font-semibold mb-3">Registration Deadline</h4>
-                  <p>April 5, 2025 at 11:59 PM</p>
+                  <h4 className="text-xl font-semibold mb-3">
+                    Registration Deadline
+                  </h4>
+                  <p>July 10, 2025 at 11:59 PM</p>
                 </div>
               </motion.div>
-              
-              <motion.div 
+
+              <motion.div
                 className="p-8 lg:p-12 lg:col-span-2"
                 initial={{ opacity: 0, x: 20 }}
                 animate={inView ? { opacity: 1, x: 0 } : { opacity: 0, x: 20 }}
                 transition={{ duration: 0.5, delay: 0.3 }}
               >
                 {formStatus.submitted ? (
-                  <div className={`rounded-lg p-6 mb-6 ${formStatus.success ? 'bg-green-50 text-green-700' : 'bg-red-50 text-red-700'}`}>
+                  <div
+                    className={`rounded-lg p-6 mb-6 ${
+                      formStatus.success
+                        ? "bg-green-50 text-green-700"
+                        : "bg-red-50 text-red-700"
+                    }`}
+                  >
                     <div className="flex items-start">
-                      {formStatus.success ? 
-                        <CheckCircle size={24} className="mr-3 shrink-0" /> :
+                      {formStatus.success ? (
+                        <CheckCircle size={24} className="mr-3 shrink-0" />
+                      ) : (
                         <AlertCircle size={24} className="mr-3 shrink-0" />
-                      }
+                      )}
                       <div>
                         <h4 className="font-semibold text-lg">
-                          {formStatus.success ? 'Registration Successful!' : 'Registration Error'}
+                          {formStatus.success
+                            ? "Registration Successful!"
+                            : "Registration Error"}
                         </h4>
                         <p className="mt-1">{formStatus.message}</p>
                         {formStatus.success && (
-                          <button 
+                          <button
                             className="mt-4 text-primary-600 font-medium hover:text-primary-700"
-                            onClick={() => setFormStatus({ submitted: false, success: false, message: '' })}
+                            onClick={() =>
+                              setFormStatus({
+                                submitted: false,
+                                success: false,
+                                message: "",
+                              })
+                            }
                           >
                             Register Another Team
                           </button>
@@ -151,7 +189,10 @@ const Registration = () => {
                   <form onSubmit={handleSubmit} className="space-y-6">
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                       <div>
-                        <label className="block text-gray-700 mb-2 font-medium" htmlFor="fullName">
+                        <label
+                          className="block text-gray-700 mb-2 font-medium"
+                          htmlFor="fullName"
+                        >
                           Full Name *
                         </label>
                         <div className="relative">
@@ -170,9 +211,12 @@ const Registration = () => {
                           />
                         </div>
                       </div>
-                      
+
                       <div>
-                        <label className="block text-gray-700 mb-2 font-medium" htmlFor="email">
+                        <label
+                          className="block text-gray-700 mb-2 font-medium"
+                          htmlFor="email"
+                        >
                           Email Address *
                         </label>
                         <div className="relative">
@@ -191,9 +235,12 @@ const Registration = () => {
                           />
                         </div>
                       </div>
-                      
+
                       <div>
-                        <label className="block text-gray-700 mb-2 font-medium" htmlFor="phone">
+                        <label
+                          className="block text-gray-700 mb-2 font-medium"
+                          htmlFor="phone"
+                        >
                           Phone Number
                         </label>
                         <div className="relative">
@@ -211,9 +258,12 @@ const Registration = () => {
                           />
                         </div>
                       </div>
-                      
+
                       <div>
-                        <label className="block text-gray-700 mb-2 font-medium" htmlFor="organization">
+                        <label
+                          className="block text-gray-700 mb-2 font-medium"
+                          htmlFor="organization"
+                        >
                           Organization/Institution
                         </label>
                         <div className="relative">
@@ -231,9 +281,12 @@ const Registration = () => {
                           />
                         </div>
                       </div>
-                      
+
                       <div>
-                        <label className="block text-gray-700 mb-2 font-medium" htmlFor="teamName">
+                        <label
+                          className="block text-gray-700 mb-2 font-medium"
+                          htmlFor="teamName"
+                        >
                           Team Name *
                         </label>
                         <div className="relative">
@@ -252,9 +305,12 @@ const Registration = () => {
                           />
                         </div>
                       </div>
-                      
+
                       <div>
-                        <label className="block text-gray-700 mb-2 font-medium" htmlFor="teamSize">
+                        <label
+                          className="block text-gray-700 mb-2 font-medium"
+                          htmlFor="teamSize"
+                        >
                           Team Size
                         </label>
                         <select
@@ -266,15 +322,17 @@ const Registration = () => {
                         >
                           <option value="">Select team size</option>
                           <option value="1">Individual (1 person)</option>
-                          <option value="2-3">Small team (2-3 people)</option>
-                          <option value="4-5">Medium team (4-5 people)</option>
-                          <option value="6+">Large team (6+ people)</option>
+                          <option value="2-3"> (2-3 people)</option>
+                          <option value="3-4"> (3-4 people)</option>
                         </select>
                       </div>
                     </div>
-                    
+
                     <div>
-                      <label className="block text-gray-700 mb-2 font-medium" htmlFor="challengeTrack">
+                      <label
+                        className="block text-gray-700 mb-2 font-medium"
+                        htmlFor="challengeTrack"
+                      >
                         Challenge Track *
                       </label>
                       <select
@@ -286,16 +344,27 @@ const Registration = () => {
                         required
                       >
                         <option value="">Select a challenge track</option>
-                        <option value="industrial-automation">Industrial Automation Solutions</option>
-                        <option value="human-robot">Human-Robot Collaboration</option>
-                        <option value="ai-robotics">AI-Powered Robotics Applications</option>
-                        <option value="iot-connectivity">IoT and Connectivity Solutions</option>
-                        <option value="smart-manufacturing">Smart Manufacturing Technologies</option>
+                        <option value="industrial-automation">
+                          Industrial Automation Solutions
+                        </option>
+                        <option value="human-robot">
+                          Human-Robot Collaboration
+                        </option>
+                        <option value="ai-robotics">
+                          AI-Powered Robotics Applications
+                        </option>
+                        <option value="iot-connectivity">
+                          IoT and Connectivity Solutions
+                        </option>
+                        {/* <option value="smart-manufacturing">Smart Manufacturing Technologies</option> */}
                       </select>
                     </div>
-                    
+
                     <div>
-                      <label className="block text-gray-700 mb-2 font-medium" htmlFor="experience">
+                      <label
+                        className="block text-gray-700 mb-2 font-medium"
+                        htmlFor="experience"
+                      >
                         Relevant Experience
                       </label>
                       <div className="relative">
@@ -313,7 +382,7 @@ const Registration = () => {
                         />
                       </div>
                     </div>
-                    
+
                     <div className="mt-6">
                       <button type="submit" className="btn btn-primary w-full">
                         Register Your Team
